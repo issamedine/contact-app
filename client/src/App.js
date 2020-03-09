@@ -26,7 +26,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <BrowserRouter>
           <Link to="/contact-list">
             <Button variant="dark">Contact List</Button>

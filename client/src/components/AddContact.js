@@ -17,18 +17,18 @@ class AddContact extends Component {
       .then(console.log("contact added"))
       .catch(console.log("err"));
   };
-componentDidMount(){
-  this.setState({
+// componentDidMount(){
+//   this.setState({
     
-  })
-}
+//   })
+// }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  editContact = id => {
-    axios.put(`contact/${id}`, this.state);
-  };
+  // editContact = id => {
+  //   axios.put(`contact/${id}`, this.state);
+  // };
 
   render() {
     return (
@@ -38,7 +38,7 @@ componentDidMount(){
           placeholder="Last name"
           name="name"
           onChange={this.handleChange}
-          defaultValue={this.props.person.name}
+          // defaultValue={this.props.person.name}
         />
         <Form.Control
           type="number"
@@ -46,7 +46,7 @@ componentDidMount(){
           name="number"
           className="mt10"
           onChange={this.handleChange}
-          defaultValue={this.props.person.number}
+          // defaultValue={this.props.person.number}
         />
         <Form.Control
           type="email"
@@ -54,18 +54,14 @@ componentDidMount(){
           name="email"
           className="mt10"
           onChange={this.handleChange}
-          defaultValue={this.props.person.email}
+          // defaultValue={this.props.person.email}
         />
         <Link to="/contact-list">
           <Button
             type="submit"
             className="mt10"
             variant="outline-dark"
-            onClick={
-              this.props.person
-                ? this.editContact(this.props.person._id)
-                : this.addToList()
-            }
+            onClick={this.addToList}
           >
             Add to list
           </Button>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import './ContactList.css'
 
 import AddContact from "./AddContact";
 
@@ -28,33 +29,40 @@ class ContactList extends Component {
   render() {
     console.log(this.state.contactList);
     return (
-      <div>
-        <div>
-          {this.state.contactList.map(el => (
-            <div>
+      <div className="row mt-4">
+
+        {this.state.contactList.map(el => (
+          <div className="col-xs-12 col-md-4">
+            <div className="card">
               <p>{el.name}</p>
+              <p>{el.number}</p>
+              <p>{el.email}</p>
               <Link to={`/edit-contact/${el._id}`}>
                 <Button
                   type="submit"
-                  className="mt10"
+                  className="mt10 btn-edit"
                   variant="outline-dark"
-                  // onClick={() => this.props.getPerson(el)}
+                // onClick={() => this.props.getPerson(el)}
                 >
                   Edit
                 </Button>
               </Link>
 
-              <Button
-                type="submit"
-                className="mt10"
-                variant="outline-dark"
-                onClick={() => this.deleteContact(el._id)}
-              >
-                Delete
+              <a>
+                <Button
+                  type="submit"
+                  className="mt10"
+                  variant="outline-dark"
+                  onClick={() => this.deleteContact(el._id)}
+                >
+                  Delete
               </Button>
+              </a>
+
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+
       </div>
     );
   }
