@@ -42,7 +42,7 @@ MongoClient.connect(mongo_url, { useUnifiedTopology: true }, (err, client) => {
     let productToRemoveId = req.params.id;
     console.log("productToRemoveId", productToRemoveId);
     db.collection("contact")
-      .findOneAndDelete({ _id: ObjectId(productToRemoveId) })
+      .findOneAndDelete({ _id: ObjectID(productToRemoveId) })
       .then(result => res.send(result))
       .catch(err => res.send(err));
   });
